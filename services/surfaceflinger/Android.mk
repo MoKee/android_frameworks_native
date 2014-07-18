@@ -84,6 +84,10 @@ else
     LOCAL_CFLAGS += -DPRESENT_TIME_OFFSET_FROM_VSYNC_NS=0
 endif
 
+ifeq ($(BOARD_HAVE_XIAOMI_MIONE),true)
+    LOCAL_CFLAGS += -DXIAOMI_MIONE
+endif
+
 LOCAL_CFLAGS += -fvisibility=hidden
 
 LOCAL_SHARED_LIBRARIES := \

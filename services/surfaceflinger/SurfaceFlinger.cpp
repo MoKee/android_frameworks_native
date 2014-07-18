@@ -83,7 +83,9 @@
 #endif
 
 #ifdef QCOM_BSP
+#ifndef XIAOMI_MIONE
 #include <display_config.h>
+#endif
 #endif
 
 #define DISPLAY_COUNT       1
@@ -1514,6 +1516,7 @@ void SurfaceFlinger::handleTransactionLocked(uint32_t transactionFlags)
                                 || (state.frame != draw[i].frame))
                         {
 #ifdef QCOM_BSP
+#ifndef XIAOMI_MIONE
                             int orient = state.orientation;
                             // Honor the orientation change after boot
                             // animation completes and make sure boot
@@ -1535,6 +1538,7 @@ void SurfaceFlinger::handleTransactionLocked(uint32_t transactionFlags)
                                         state.viewport, state.frame);
                                 orient = panelOrientation;
                             }
+#endif
 #endif
 #ifdef QCOM_B_FAMILY
                             // Set the view frame of each display only of its
