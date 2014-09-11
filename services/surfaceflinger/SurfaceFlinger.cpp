@@ -84,7 +84,9 @@
 
 #ifdef QCOM_BSP
 #ifndef XIAOMI_MIONE
+#ifndef XIAOMI_ARMANI
 #include <display_config.h>
+#endif
 #endif
 #endif
 
@@ -1517,6 +1519,7 @@ void SurfaceFlinger::handleTransactionLocked(uint32_t transactionFlags)
                         {
 #ifdef QCOM_BSP
 #ifndef XIAOMI_MIONE
+#ifndef XIAOMI_ARMANI
                             int orient = state.orientation;
                             // Honor the orientation change after boot
                             // animation completes and make sure boot
@@ -1538,6 +1541,7 @@ void SurfaceFlinger::handleTransactionLocked(uint32_t transactionFlags)
                                         state.viewport, state.frame);
                                 orient = panelOrientation;
                             }
+#endif
 #endif
 #endif
 #ifdef QCOM_B_FAMILY

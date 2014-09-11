@@ -88,6 +88,10 @@ ifeq ($(BOARD_HAVE_XIAOMI_MIONE),true)
     LOCAL_CFLAGS += -DXIAOMI_MIONE
 endif
 
+ifeq ($(BOARD_HAVE_XIAOMI_ARMANI),true)
+    LOCAL_CFLAGS += -DXIAOMI_ARMANI
+endif
+
 LOCAL_CFLAGS += -fvisibility=hidden
 
 LOCAL_SHARED_LIBRARIES := \
