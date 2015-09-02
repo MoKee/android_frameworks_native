@@ -15,5 +15,5 @@
 -->
 <!-- This is the standard feature indicating that the device includes a fingerprint reader. -->
 <permissions>
-    <feature name="cyanogenmod.hardware.fingerprint" />
+    <feature name="android.hardware.fingerprint" />
 </permissions>
