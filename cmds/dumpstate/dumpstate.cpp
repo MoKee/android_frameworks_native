@@ -538,9 +538,9 @@ static void print_header(std::string version) {
     char build[PROPERTY_VALUE_MAX], fingerprint[PROPERTY_VALUE_MAX];
     char radio[PROPERTY_VALUE_MAX], bootloader[PROPERTY_VALUE_MAX];
     char network[PROPERTY_VALUE_MAX], date[80];
-    char cm_version[PROPERTY_VALUE_MAX];
+    char mk_version[PROPERTY_VALUE_MAX];
 
-    property_get("ro.cm.version", cm_version, "(unknown)");
+    property_get("ro.mk.version", mk_version, "(unknown)");
     property_get("ro.build.display.id", build, "(unknown)");
     property_get("ro.build.fingerprint", fingerprint, "(unknown)");
     property_get("ro.build.type", build_type, "(unknown)");
@@ -555,7 +555,7 @@ static void print_header(std::string version) {
 
     printf("\n");
     printf("Build: %s\n", build);
-    printf("CM version: %s\n", cm_version);
+    printf("MK version: %s\n", mk_version);
     printf("Build fingerprint: '%s'\n", fingerprint); /* format is important for other tools */
     printf("Bootloader: %s\n", bootloader);
     printf("Radio: %s\n", radio);
