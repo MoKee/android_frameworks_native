@@ -551,10 +551,6 @@ public:
                 AMOTION_EVENT_AXIS_ORIENTATION, pointerIndex, historicalIndex);
     }
 
-    inline bool getThumbMode() const { return mInThumbMode; }
-
-    inline float getScaleFactor() const { return mScaleFactor; }
-
     ssize_t findPointerIndex(int32_t pointerId) const;
 
     void initialize(
@@ -575,27 +571,6 @@ public:
             size_t pointerCount,
             const PointerProperties* pointerProperties,
             const PointerCoords* pointerCoords);
-
-    void initialize(
-            int32_t deviceId,
-            int32_t source,
-            int32_t action,
-            int32_t actionButton,
-            int32_t flags,
-            int32_t edgeFlags,
-            int32_t metaState,
-            int32_t buttonState,
-            float xOffset,
-            float yOffset,
-            float xPrecision,
-            float yPrecision,
-            nsecs_t downTime,
-            nsecs_t eventTime,
-            size_t pointerCount,
-            const PointerProperties* pointerProperties,
-            const PointerCoords* pointerCoords,
-            bool inThumbMode,
-            float scaleFactor);
 
     void copyFrom(const MotionEvent* other, bool keepHistory);
 
@@ -648,8 +623,6 @@ protected:
     Vector<PointerProperties> mPointerProperties;
     Vector<nsecs_t> mSampleEventTimes;
     Vector<PointerCoords> mSamplePointerCoords;
-    bool mInThumbMode;
-    float mScaleFactor;
 };
 
 /*
