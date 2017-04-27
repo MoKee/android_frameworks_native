@@ -642,10 +642,15 @@ status_t SurfaceFlinger::getDisplayConfigs(const sp<IBinder>& display,
         const HWComposer::DisplayConfig& hwConfig = hwConfigs[c];
         DisplayInfo info = DisplayInfo();
 
+        bool displayRotatable = type == DisplayDevice::DISPLAY_PRIMARY;
+#ifdef ROTATES_EXTERNAL_DISPLAY
+        displayRotatable = displayRotatable || type == DisplayDevice::DISPLAY_EXTERNAL;
+#endif
+
         float xdpi = hwConfig.xdpi;
         float ydpi = hwConfig.ydpi;
 
-        if (type == DisplayDevice::DISPLAY_PRIMARY) {
+        if (displayRotatable) {
             // The density of the device is provided by a build property
             float density = Density::getBuildDensity() / 160.0f;
             if (density == 0) {
@@ -674,7 +679,7 @@ status_t SurfaceFlinger::getDisplayConfigs(const sp<IBinder>& display,
         char value[PROPERTY_VALUE_MAX];
         property_get("ro.sf.hwrotation", value, "0");
         int additionalRot = atoi(value) / 90;
-        if ((type == DisplayDevice::DISPLAY_PRIMARY) && (additionalRot & DisplayState::eOrientationSwapMask)) {
+        if (displayRotatable && (additionalRot & DisplayState::eOrientationSwapMask)) {
             info.h = hwConfig.width;
             info.w = hwConfig.height;
             info.xdpi = ydpi;

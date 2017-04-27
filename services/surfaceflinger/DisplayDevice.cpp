@@ -467,7 +467,12 @@ status_t DisplayDevice::orientationToTransfrom(
     property_get("ro.sf.hwrotation", value, "0");
     int additionalRot = atoi(value);
 
-    if (additionalRot && mType == DISPLAY_PRIMARY) {
+    bool displayRotatable = mType == DISPLAY_PRIMARY;
+#ifdef ROTATES_EXTERNAL_DISPLAY
+    displayRotatable = displayRotatable || mType == DISPLAY_EXTERNAL;
+#endif
+
+    if (additionalRot && displayRotatable) {
         additionalRot /= 90;
         if (orientation == DisplayState::eOrientationUnchanged) {
             orientation = additionalRot;

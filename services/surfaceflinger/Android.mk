@@ -90,6 +90,10 @@ ifeq ($(TARGET_HAS_HH_VSYNC_ISSUE),true)
     LOCAL_CFLAGS += -DHH_VSYNC_ISSUE
 endif
 
+ifeq ($(TARGET_ROTATES_EXTERNAL_DISPLAY),true)
+    LOCAL_CFLAGS += -DROTATES_EXTERNAL_DISPLAY
+endif
+
 # The following two BoardConfig variables define (respectively):
 #
 #   - The phase offset between hardware vsync and when apps are woken up by the
