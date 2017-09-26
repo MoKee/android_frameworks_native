@@ -45,6 +45,10 @@ LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)
 
 LOCAL_MODULE := libinputflinger
 
+ifneq ($(BOARD_HAS_EDGE_SLOP),)
+    LOCAL_CFLAGS += -DEDGE_SLOP=$(BOARD_HAS_EDGE_SLOP)
+endif
+
 include $(BUILD_SHARED_LIBRARY)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))

@@ -6718,6 +6718,12 @@ void MultiTouchInputMapper::syncTouch(nsecs_t when, RawState* outState) {
             break; // too many fingers!
         }
 
+#ifdef EDGE_SLOP
+	int32_t x = inSlot->getX();
+	if (x <= EDGE_SLOP || x >= mRawPointerAxes.x.maxValue - EDGE_SLOP){
+	    continue;
+	}
+#endif
         RawPointerData::Pointer& outPointer = outState->rawPointerData.pointers[outCount];
         outPointer.x = inSlot->getX();
         outPointer.y = inSlot->getY();
