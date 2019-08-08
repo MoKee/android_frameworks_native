@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9b66c5dc_260598d4",
+        "filename": "services/surfaceflinger/DisplayUtils.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1442
+      },
+      "writtenOn": "2019-08-08T06:17:43Z",
+      "side": 1,
+      "message": "多了一空行？",
+      "revId": "ea1f4ab0ea19e07c2350433889de42f0a5f50652",
+      "serverId": "83d63960-fecf-4fd1-a7f6-e01518638a62",
+      "unresolved": true
+    }
+  ]
+}
